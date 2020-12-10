@@ -1,0 +1,44 @@
+{% extends 'todo/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+
+{{ error }}
+
+<div class="todoform">
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="title"><strong>Title</strong></label>
+      <input type="text" class="form-control inputboxes" name="title" id="title" value="{{ todos.title }}">
+    </div>
+    <div class="form-group">
+      <label for="memo"><strong>Memo</strong></label>
+      <textarea class="form-control inputboxes" name="memo" rows="8" cols="10" id="memo">{{ todos.memo }}</textarea>
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="important" name="important" {% if todos.important %} checked {% endif %}>
+      <label class="form-check-label" for="important"><strong>Important</strong></label>
+    </div>
+    <button class="btn btn-sm btn-success" type="submit" name="button">Save</button>
+  </form>
+  <div class="d-flex flex-row bd-highlight mb-3">
+    <div class="pt-2 bd-highlight">
+      <form method="post" action="{% url 'completetodo' todos.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-sm btn-primary" name="button">Complete</button>
+      </form>
+    </div>
+    <div class="p-2 bd-highlight">
+      <form method="post" action="{% url 'deletetodo' todos.id %}">
+        {% csrf_token %}
+        <button class="btn btn-sm btn-danger" type="submit" name="button">Delete</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'todo/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+
+<div class="todoform">
+  <h1 class="centralise">Create todo</h1>
+  <br><br>
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="title"><strong>Title</strong></label>
+      <input type="text" class="form-control inputboxes" name="title" id="title">
+    </div>
+    <div class="form-group">
+      <label for="memo"><strong>Memo</strong></label>
+      <textarea class="form-control inputboxes" name="memo" rows="8" cols="10" id="memo"></textarea>
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input inputboxes" id="important" name="important">
+      <label class="form-check-label" for="important"><strong>Important</strong></label>
+    </div>
+    <button class="btn btn-sm btn-primary" type="submit" name="button">Create</button>
+  </form>
+  <p>{{ error }}</p>
+</div>
+
+{% endblock %}

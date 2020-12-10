@@ -1,0 +1,112 @@
+html, body
+{
+  height: 100%;
+}
+body
+{
+  background: #EFEFBB;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #D4D3DD, #EFEFBB);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #D4D3DD, #EFEFBB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.inputboxes
+{
+  background: rgba(255,255,255,0.3);
+}
+
+a:hover
+{
+  text-decoration: none;
+}
+
+.centralise
+{
+  text-align: center;
+}
+
+.navs
+{
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.userform
+{
+  width: 60%;
+  padding: 1%;
+  margin: auto;
+}
+
+.normaltodo
+{
+  border: 3px solid black;
+  color: black;
+  padding: 10px;
+  margin: 15px 3px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.1);
+  font-size: 17px;
+}
+
+.completedtodo
+{
+  border: 3px solid rgb(28, 167, 38);
+  color: rgb(28, 167, 38);
+  padding: 10px;
+  margin: 15px 3px;
+  border-radius: 5px;
+  background: rgba(28, 167, 38, 0.1);
+  font-size: 17px;
+}
+
+.importanttodo
+{
+  font-size: 17px;
+  color: #9c0000;
+  border: 3px solid #9c0000;
+  padding: 10px;
+  margin: 15px 3px;
+  border-radius: 5px;
+  background: rgba(255, 0, 0, 0.3);
+}
+
+.todocontainer
+{
+  width: 90%;
+  padding: 1%;
+  margin: auto;
+}
+
+.todoform
+{
+  width: 60%;
+  margin: auto;
+}
+
+.error
+{
+  color: #9c0000;
+}
+
+.deletebutton
+{
+  border-style: none;
+  /* font-weight: bold; */
+  color: inherit;
+  background: none;
+}
+
+.deletebutton:focus
+{
+  outline: none;
+}
+
+.home_heading
+{
+  font-size: 4rem;
+}
+
+.home_paragraph
+{
+  font-size: 1.5rem;
+}

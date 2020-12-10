@@ -1,0 +1,40 @@
+{% extends 'todo/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <h1 class="todoheadings">Completed</h1>
+  <div class="todocontainer">
+    {% if length == 0 %}
+      <br><br>
+      <p class="home_paragraph">You haven't completed any todos yet.</p>
+      <a href="{% url 'currenttodos' %}"><button class="btn btn-md btn-success" type="button" name="button">Current todos</button></a>
+    {% else %}
+      {% for todo in todos %}
+      <div class='completedtodo row'>
+        <div class="col">
+          <b>{{ todo.title }}</b> {% if todo.memo != '' %}- {{ todo.memo|truncatechars:50 }} {% endif %} | {{ todo.datecompleted }}
+        </div>
+        <div class="col-1">
+          <form class="" action="{% url 'renewtodo' todo.id %}" method="post">
+            {% csrf_token %}
+            <input style="font-weight:bold;  padding: 0px;" class="deletebutton" type="submit" value="Renew" %}"></input>
+          </form>
+        </div>
+        <div class="col-1">
+          <form class="" action="{% url 'deletetodo' todo.id %}" method="post">
+            {% csrf_token %}
+            <input style="font-weight:bold;  padding: 0px;" class="deletebutton" type="submit" value="Delete" %}"></input>
+          </form>
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

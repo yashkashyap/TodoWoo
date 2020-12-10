@@ -1,0 +1,55 @@
+{% extends 'todo/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+
+<h1 class="centralise home_heading">Signup</h1>
+<br><br><br>
+<div class="userform">
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group row">
+      <div class="col-3">
+        <label for="username"><strong style="font-size:20px;">Username</strong></label>
+      </div>
+      <div class="col-9">
+        <input type="text" class="form-control inputboxes" id="username" name="username">
+      </div>
+      {% if unameerror %}
+      <span class="col-3"></span>
+      <p class="error col-9">{{ unameerror }}</p>
+      {% endif %}
+    </div>
+    <div class="form-group row">
+      <div class="col-3">
+        <label for="password"><strong style="font-size:20px;">Password</strong></label>
+      </div>
+      <div class="col-9">
+        <input type="password" class="form-control inputboxes" id="password" name="password">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-3">
+        <label for="cpassword"><strong style="font-size:20px;">Confirm Password</strong></label>
+      </div>
+      <div class="col-9">
+        <input type="password" class="form-control inputboxes" id="cpassword" name="cpassword">
+      </div>
+      {% if passerror %}
+      <span class="col-3"></span>
+      <p class="error col-9">{{ passerror }}</p>
+      {% endif %}
+    </div>
+    <br>
+    <div class="centralise">
+      <p class="error">{{ error }}</p>
+      <button style="width: 50%;" type="submit" name="button" class="btn btn-md btn-success">Submit</button>
+      <p>Already have an account? <a href="{% url 'loginuser' %}">Log in!</a></p>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
